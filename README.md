@@ -1,4 +1,4 @@
-# Assignment1
-2250 Assignment 1: Falling shapes
+# SE2250 Assignments
+Assignment 1: Falling shapes
 
 
