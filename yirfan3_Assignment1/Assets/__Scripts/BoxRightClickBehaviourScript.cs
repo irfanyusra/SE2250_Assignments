@@ -8,7 +8,6 @@ public class BoxRightClickBehaviourScript : MonoBehaviour
 {
   
   public GameObject box;
-  public Quaternion rot; 
   float rotateX = 5;
   float rotateY = -3;
   float rotateZ = 3;
@@ -23,9 +22,10 @@ public class BoxRightClickBehaviourScript : MonoBehaviour
   {          
   }
 
-  void OnMouseOver () //hover on an object
+//hover on an object
+  void OnMouseOver () 
   { 
-  if(Input.GetMouseButtonDown(1)||Input.GetMouseButtonDown(2))//right or left click  
+  if(Input.GetMouseButtonDown(0)||Input.GetMouseButtonDown(1)||Input.GetMouseButtonDown(2))//right or left click  
       box.transform.Rotate(rotateX,rotateY,rotateZ);
   }
 }
