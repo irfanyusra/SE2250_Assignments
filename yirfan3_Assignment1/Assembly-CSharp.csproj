@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerRightClickMouseBehaviourScript.cs" />
+     <Compile Include="Assets\__Scripts\BoxRightClickBehaviourScript.cs" />
+     <Compile Include="Assets\__Scripts\CameraSwitchBehaviourScript.cs" />
+     <Compile Include="Assets\__Scripts\PlayerRightClickMouseBehaviourScript.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/yusra/OneDrive/Desktop/Uni/Year2/SEM2/SE2250/Assignments/yirfan3_Assignment1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
