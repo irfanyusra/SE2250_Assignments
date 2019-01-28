@@ -8,9 +8,9 @@ public class BoxRightClickBehaviourScript : MonoBehaviour
 {
   
   public GameObject box;
-  float rotateX = 5;
-  float rotateY = -3;
-  float rotateZ = 3;
+  float rotateX = 5f;
+  float rotateY = -3f;
+  float rotateZ = 3f;
    
  // Start is called before the first frame update
   void Start()
