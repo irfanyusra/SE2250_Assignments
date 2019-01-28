@@ -10,7 +10,6 @@ public class CameraSwitchBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sideCamera = Camera.main; //Gets the Main Camera from the Scene and assigns it to the side camera
         sideCamera.enabled = true; //Enables Side Camera
         topCamera.enabled = false; //Disable Top Camera
     }

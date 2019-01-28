@@ -19,9 +19,12 @@ public class PlayerRightClickMouseBehaviourScript : MonoBehaviour
   void OnMouseOver () //hover on an object
   { 
     if(Input.GetMouseButtonDown(1)) //right click 
-    {
-      this.gameObject.transform.position = originalPos; //changes the postion to the original position 
-    }
-}
+      ResetPostion();
+  }
+
+void ResetPostion(){
+    this.gameObject.transform.position = originalPos; //changes the postion to the original position 
+  }
+
 }
 
