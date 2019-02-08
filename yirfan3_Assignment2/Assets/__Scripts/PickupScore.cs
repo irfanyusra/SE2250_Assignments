@@ -6,7 +6,7 @@ public class PickupScore : MonoBehaviour
 	public int ScorePickup
 	{
 		get
-		{	
+		{
 			return scorePickup;
 		}
 		set

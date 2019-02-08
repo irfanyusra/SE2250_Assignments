@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -30,14 +28,10 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("PickUp"))
 		{
-			//score += other.GetComponent<PickupScore>().ScorePickup;
-			GameObject thePlayer = GameObject.Find(other.name);
-			PickupScore playerScript = thePlayer.GetComponent<PickupScore>();
-			score += playerScript.ScorePickup;
-
+			score += other.gameObject.GetComponent<PickupScore>().ScorePickup;
 			other.gameObject.SetActive(false);
 		}
-		scoreText.text = "Score: " + score;
+		SetScoreText();
 	}
 
 	void SetScoreText()
