@@ -5,50 +5,43 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
- public float speed;
- public Text scoreText;
- private Rigidbody rigidbody;
+	public float speed;
+	public Text scoreText;
+	private int score;
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		score = 0;
+		SetScoreText();
+	}
 
 
-int score;
-// Start is called before the first frame update
-    void Start()
-    {
-        rigidbody = GetComponent <Rigidbody>();
-        score =0;
-        SetScoreText();
-     
-    }
+	void FixedUpdate()
+	{
+		float moveHorizontal = Input.GetAxis("Horizontal");
+		float moveVertical = Input.GetAxis("Vertical");
 
-  
-    void FixedUpdate()
-    {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        
-        Vector3 movement = new Vector3 (moveHorizontal,0.0f,moveVertical);
+		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+		GetComponent<Rigidbody>().AddForce(movement * speed);
+	}
 
-        rigidbody.AddForce (movement*speed); 
-    }
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("PickUp"))
+		{
+			//score += other.GetComponent<PickupScore>().ScorePickup;
+			GameObject thePlayer = GameObject.Find(other.name);
+			PickupScore playerScript = thePlayer.GetComponent<PickupScore>();
+			score += playerScript.ScorePickup;
 
- void OnTriggerEnter(Collider other){
-     if (other.gameObject.CompareTag("PickUp1")){
-         other.gameObject.SetActive(false);
-         score+=1;
-     }
-      if (other.gameObject.CompareTag("PickUp2")){
-         other.gameObject.SetActive(false);
-         score+=2;
-     }
-      if (other.gameObject.CompareTag("PickUp3")){
-         other.gameObject.SetActive(false);
-         score+=3;
-     }
-      scoreText.text= "Score: " + score ;  
+			other.gameObject.SetActive(false);
+		}
+		scoreText.text = "Score: " + score;
+	}
 
- }
-    
-    void SetScoreText(){
-        scoreText.text= "Score: " + score ;  
-     }
+	void SetScoreText()
+	{
+		scoreText.text = "Score: " + score;
+	}
 }
