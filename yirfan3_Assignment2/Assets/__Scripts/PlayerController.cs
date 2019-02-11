@@ -5,12 +5,12 @@ public class PlayerController : MonoBehaviour
 {
 	public float speed;
 	public Text scoreText;
-	private int score;
+	private int _score;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		score = 0;
+		_score = 0;
 		SetScoreText();
 	}
 
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 	void FixedUpdate()
 	{
 		float moveHorizontal = Input.GetAxis("Horizontal");
+
 		float moveVertical = Input.GetAxis("Vertical");
 
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
@@ -28,14 +29,14 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("PickUp"))
 		{
-			score += other.gameObject.GetComponent<PickupScore>().ScorePickup;
-			other.gameObject.SetActive(false);
+			_score += other.gameObject.GetComponent<PickupScore>().ScorePickup;
+			Destroy(other.gameObject);
 		}
 		SetScoreText();
 	}
 
 	void SetScoreText()
 	{
-		scoreText.text = "Score: " + score;
+		scoreText.text = "Score: " + _score;
 	}
 }

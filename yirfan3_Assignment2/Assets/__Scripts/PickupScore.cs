@@ -2,16 +2,16 @@
 
 public class PickupScore : MonoBehaviour
 {
-	private int scorePickup = 0;
+	private int _scorePickup = 0;
 	public int ScorePickup
 	{
 		get
 		{
-			return scorePickup;
+			return _scorePickup;
 		}
 		set
 		{
-			scorePickup = value;
+			_scorePickup = value;
 		}
 	}
 }

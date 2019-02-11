@@ -4,13 +4,14 @@ public class PickupObjectSpawnerScript : MonoBehaviour
 {
 	public GameObject pickupObjectPrefabVar;
 	public int numOfObjectsOnTheScene;
-	private int numPickupObjects = 0;
-	private float radius = 9f;
+	private int _numPickupObjects = 1;
+	private float _radius = 9f;
+	private GameObject _go;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		while (numPickupObjects < numOfObjectsOnTheScene)
+		while (_numPickupObjects <= numOfObjectsOnTheScene)
 		{
 			int objectScore = Random.Range(1, 4);
 			if (objectScore == 1)
@@ -19,22 +20,23 @@ public class PickupObjectSpawnerScript : MonoBehaviour
 				AddObjects(objectScore, Color.red);
 			else if (objectScore == 3)
 				AddObjects(objectScore, Color.yellow);
-			numPickupObjects++;
+			_numPickupObjects++;
 		}
 	}
 
 	void AddObjects(int objectScore, Color color)
 	{
-		GameObject go = Instantiate<GameObject>(pickupObjectPrefabVar);
-		go.name = "PickupObj" + numPickupObjects + " - " + objectScore;
-		go.GetComponent<Renderer>().material.color = color;
-		go.GetComponent<PickupScore>().ScorePickup = objectScore;
-		go.tag = "PickUp";
-
-		//for the position of the objects
-		float angle = numPickupObjects * Mathf.PI * 2f / numOfObjectsOnTheScene;
-		Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1, Mathf.Sin(angle) * radius);
-		go.transform.position = newPos;
+		//for the position of the objects to be in a circle 
+		float _angle = _numPickupObjects * Mathf.PI * 2f / numOfObjectsOnTheScene;
+		float _xpos = Mathf.Cos(_angle) * _radius;
+		float _ypos = Mathf.Sin(_angle) * _radius;
+		Vector3 pos = new Vector3( _xpos, 1.0f,_ypos);
+	
+		_go = Instantiate(pickupObjectPrefabVar, pos, pickupObjectPrefabVar.transform.rotation);
+		_go.name = "PickupObj" + _numPickupObjects + " - " + objectScore;
+		_go.GetComponent<Renderer>().material.color = color;
+		_go.GetComponent<PickupScore>().ScorePickup = objectScore;
+		
 
 	}
 }
