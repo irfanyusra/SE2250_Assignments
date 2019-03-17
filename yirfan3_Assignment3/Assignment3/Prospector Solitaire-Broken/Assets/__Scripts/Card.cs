@@ -81,9 +81,10 @@ public class Card : MonoBehaviour {
 		}
 	}
 
-	public void OnMouseUpAsButton(){
+	virtual public void OnMouseUpAsButton(){
 	}
 }
+
 
 [System.Serializable] // A Serializable class is able to be edited in the Inspector
 public class Decorator {
