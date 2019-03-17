@@ -144,7 +144,7 @@ public class Deck : MonoBehaviour {
 		cardNames = new List<string>();
 		string[] letters = new string[] {"C","D","H","S"};
 		foreach (string s in letters) {
-			for (int i=0; i<14; i++) {
+			for (int i=0; i<13; i++) { //goes 1 to 13 
 				cardNames.Add(s+(i+1));
 			}
 		}
