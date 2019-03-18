@@ -274,6 +274,8 @@ public class Prospector : MonoBehaviour
 	// Make cd the new target card
 	void MoveToTarget(CardProspector cd)
 	{
+		print(cd.suit + cd.rank);
+
 		// If there is currently a target card, move it to discardPile
 		if (target != null) MoveToDiscard(target);
 		target = cd; // cd is the new target
@@ -319,8 +321,6 @@ public class Prospector : MonoBehaviour
 	// CardClicked is called any time a card in the game is clicked
 	public void CardClicked(CardProspector cd)
 	{
-		print("SSss");
-		//print(cd.suit + cd.rank);
 		// The reaction is determined by the state of the clicked card
 		switch (cd.state)
 		{
