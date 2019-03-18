@@ -105,6 +105,7 @@ public class Prospector : MonoBehaviour
 		}
 		else
 		{
+			
 			gameOverText.text = "Game Over";
 			if (ScoreManager.HIGH_SCORE <= score)
 			{
@@ -125,6 +126,7 @@ public class Prospector : MonoBehaviour
 		Invoke("ReloadLevel", reloadDelay);                                 // a
 																			// SceneManager.LoadScene("__Prospector_Scene_0"); // Now commented out!
 	}
+	
 
 	void Start()
 	{
