@@ -6,7 +6,7 @@ public class Card : MonoBehaviour {
 	// This will be defined later
 	[Header("Set Dynamically")]
 	public string           suit; // Suit of the Card (C,D,H, or S)
-	public int              rank; // Rank of the Card (1-14)
+	public int              rank; // Rank of the Card (1-13)
 	public Color            color = Color.black; // Color to tint pips
 	public string           colS = "Black"; // or "Red". Name of the Color
 
@@ -81,8 +81,8 @@ public class Card : MonoBehaviour {
 		}
 	}
 
-	virtual public void OnMouseUpAsButton(){
-		print(name);  //outputs the card name
+	virtual public void OnMouseUpAsButton()
+	{
 	}
 }
 

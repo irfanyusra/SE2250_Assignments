@@ -319,6 +319,8 @@ public class Prospector : MonoBehaviour
 	// CardClicked is called any time a card in the game is clicked
 	public void CardClicked(CardProspector cd)
 	{
+		print("SSss");
+		//print(cd.suit + cd.rank);
 		// The reaction is determined by the state of the clicked card
 		switch (cd.state)
 		{
@@ -346,11 +348,11 @@ public class Prospector : MonoBehaviour
 					// If it's not an adjacent rank, it's not valid
 					validMatch = false;
 				}
-				if (cd.color == target.color) // check if the colours are the same if they are then not a valid play
-				{
-					validMatch = false;
+				//if (cd.color == target.color) // check if the colours are the same if they are then not a valid play
+				//{
+				//	validMatch = false;
 
-				}
+				//}
 
 				if (!validMatch) return; // return if not valid
 
@@ -412,6 +414,10 @@ public class Prospector : MonoBehaviour
 	{
 		// If either card is face-down, it's not adjacent.
 		if (!c0.faceUp || !c1.faceUp) return (false);
+		if (c0.color == c1.color) // check if the colours are the same if they are then not a valid play
+			return false;
+
+		
 
 		// If they are 1 apart, they are adjacent
 		if (Mathf.Abs(c0.rank - c1.rank) == 1)
