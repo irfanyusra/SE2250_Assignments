@@ -284,15 +284,15 @@ public class Prospector : MonoBehaviour {
 	public void CardClicked(CardProspector cd) {
 		// The reaction is determined by the state of the clicked card
 		switch (cd.state) {
-		case eCardState.target:
+		case eCardState.target: //changed 
 			break;
-		case eCardState.drawpile:
+		case eCardState.drawpile: //changed 
 			// Clicking any card in the drawPile will draw the next card
 			MoveToDiscard(target); // Moves the target to the discardPile
 			MoveToTarget(Draw());  // Moves the next drawn card to the target
 			UpdateDrawPile();     // Restacks the drawPile
-			ScoreManager.EVENT(eScoreEvent.draw);
-			FloatingScoreHandler(eScoreEvent.draw);
+			ScoreManager.EVENT(eScoreEvent.draw); //added 
+			FloatingScoreHandler(eScoreEvent.draw); //added 
 			break;
 
 		case eCardState.tableau:
