@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Prospector : MonoBehaviour {
 	static public Prospector    S;
-	private ScoreManager SM = new ScoreManager();
+	//private ScoreManager SM = new ScoreManager();
 
 	[Header("Set in Inspector")]
 	public TextAsset            deckXML; 
@@ -311,7 +311,7 @@ public class Prospector : MonoBehaviour {
 			tableau.Remove(cd); // Remove it from the tableau List
 			MoveToTarget(cd);  // Make it the target card
 			SetTableauFaces(); // Update tableau card face-ups 
-			SM.Event(eScoreEvent.mine);
+			ScoreManager.EVENT(eScoreEvent.mine);
 			FloatingScoreHandler(eScoreEvent.mine);
 			break; 
 		}
