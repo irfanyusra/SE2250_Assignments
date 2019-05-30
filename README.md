@@ -1,4 +1,4 @@
 # SE2250 Assignments
-Assignment 1: Falling shapes
+3 Assignments to learn about Unity and Game design.
 
 
